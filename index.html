@@ -15,43 +15,52 @@
 
         body {
             margin: 0;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
             background-color: var(--deep-obsidian);
             color: white;
             line-height: 1.6;
         }
 
-        /* Hero Section */
-        .hero {
-            height: 60vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        /* Clean Banner Header */
+        .banner-container {
+            width: 100%;
+            max-height: 400px;
+            overflow: hidden;
+            border-bottom: 2px solid var(--primary-green);
+        }
+
+        .banner-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Ethos & Mission Bar */
+        .mission-bar {
+            background: linear-gradient(90deg, #0a0a0a, #1a1a1a);
+            padding: 40px 20px;
             text-align: center;
-            background: linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.8)), 
-                        url('https://raw.githubusercontent.com/betterplanetllc/betterplanetllc.github.io/main/banner.png'); /* Replace with your actual banner path later */
-            background-size: cover;
-            background-position: center;
-            border-bottom: 1px solid var(--primary-green);
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 0.5rem;
-            letter-spacing: 2px;
+        .mission-bar h1 {
+            font-size: 2.8rem;
+            margin: 0;
+            color: white;
+            letter-spacing: 3px;
         }
 
-        .hero p {
-            font-size: 1.2rem;
+        .mission-bar p {
             color: var(--primary-green);
-            max-width: 600px;
+            font-size: 1.1rem;
+            margin-top: 10px;
+            font-weight: 300;
         }
 
-        /* Service Grid */
+        /* Rest of the grid... */
         .container {
             max-width: 1100px;
-            margin: -50px auto 50px;
+            margin: 40px auto;
             padding: 0 20px;
         }
 
@@ -63,85 +72,22 @@
 
         .card {
             background: var(--glass);
-            backdrop-filter: blur(10px);
             padding: 30px;
-            border-radius: 15px;
+            border-radius: 12px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease;
+            transition: 0.3s ease;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary-green);
-        }
+        .card:hover { border-color: var(--primary-green); }
 
-        .card h2 {
-            color: var(--primary-green);
-            margin-top: 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+        .card h2 { color: var(--primary-green); margin-top: 0; }
 
-        .card ul {
-            list-style: none;
-            padding: 0;
-            color: var(--text-gray);
-        }
+        .card ul { list-style: none; padding: 0; color: var(--text-gray); }
 
-        .card li {
-            margin-bottom: 10px;
-            padding-left: 20px;
-            position: relative;
-        }
+        .card li { margin-bottom: 12px; padding-left: 20px; position: relative; }
 
-        .card li::before {
-            content: "▹";
-            position: absolute;
-            left: 0;
-            color: var(--primary-green);
-        }
+        .card li::before { content: "▹"; position: absolute; left: 0; color: var(--primary-green); }
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text-gray);
-        }
+        footer { text-align: center; padding: 60px 20px; border-top: 1px solid #222; }
 
-        .ethos {
-            font-style: italic;
-            margin-bottom: 20px;
-        }
-
-        .social-links a {
-            color: white;
-            font-size: 1.5rem;
-            margin: 0 15px;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .social-links a:hover {
-            color: var(--primary-green);
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-        }
-    </style>
-</head>
-<body>
-
-    <section class="hero">
-        <h1>BETTER PLANET</h1>
-        <p>Tech & Professional Solutions | Scaling Globally</p>
-    </section>
-
-    <div class="container">
-        <div class="grid">
-            <div class="card">
-                <h2><i class="fas fa-code"></i> Software & Dev</h2>
-                <ul>
-                    <li>
+        .social-links a { color: white;
