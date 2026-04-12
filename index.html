@@ -3,91 +3,492 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Better Planet LLC | Tech & Professional Solutions</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Better Planet LLC | Tech, IT & Strategic Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* ============================================
+           CSS CUSTOM PROPERTIES - Design Tokens
+           ============================================ */
         :root {
-            --primary-green: #00ffcc;
+            --primary-teal: #00ffcc;
+            --primary-green: #00d4aa;
             --deep-obsidian: #0a0a0a;
-            --glass: rgba(255, 255, 255, 0.05);
-            --text-gray: #b0b0b0;
+            --obsidian-light: #141414;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --text-white: #ffffff;
+            --text-gray: #a0a0a0;
+            --text-muted: #666666;
+            --card-radius: 16px;
+            --transition-smooth: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* ============================================
+           BASE RESET & TYPOGRAPHY
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            margin: 0;
-            font-family: 'Segoe UI', sans-serif;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
             background-color: var(--deep-obsidian);
-            color: white;
+            color: var(--text-white);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Clean Banner Header */
-        .banner-container {
+        /* ============================================
+           BANNER SECTION - Digital Gaia Hero
+           ============================================ */
+        .banner-section {
             width: 100%;
-            max-height: 400px;
+            position: relative;
             overflow: hidden;
-            border-bottom: 2px solid var(--primary-green);
         }
 
-        .banner-img {
+        .banner-image {
             width: 100%;
             height: auto;
             display: block;
             object-fit: cover;
+            max-height: 500px;
         }
 
-        /* Ethos & Mission Bar */
-        .mission-bar {
-            background: linear-gradient(90deg, #0a0a0a, #1a1a1a);
-            padding: 40px 20px;
+        .company-header {
+            padding: 60px 20px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--deep-obsidian) 0%, var(--obsidian-light) 100%);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .company-name {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--text-white);
+            margin-bottom: 12px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .ethos-tagline {
+            font-size: clamp(1rem, 3vw, 1.4rem);
+            color: var(--primary-teal);
+            font-weight: 300;
+            letter-spacing: 2px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        /* ============================================
+           HERO / INTRO SECTION
+           ============================================ */
+        .hero-section {
+            padding: 80px 20px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 600;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--text-white) 0%, var(--primary-teal) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ============================================
+           SERVICES GRID - Three Pillars
+           ============================================ */
+        .services-section {
+            padding: 40px 20px 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        /* Glassmorphism Card */
+        .pillar-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--card-radius);
+            padding: 40px 30px;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pillar-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary-teal), transparent);
+            opacity: 0;
+            transition: var(--transition-smooth);
+        }
+
+        .pillar-card:hover {
+            border-color: var(--primary-teal);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 255, 204, 0.1);
+        }
+
+        .pillar-card:hover::before {
+            opacity: 1;
+        }
+
+        .pillar-icon {
+            font-size: 2.5rem;
+            color: var(--primary-teal);
+            margin-bottom: 20px;
+        }
+
+        .pillar-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-white);
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .pillar-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .services-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .services-list li {
+            color: var(--text-gray);
+            padding: 12px 0;
+            border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            transition: var(--transition-smooth);
+        }
+
+        .services-list li:last-child {
+            border-bottom: none;
+        }
+
+        .services-list li:hover {
+            color: var(--text-white);
+            padding-left: 8px;
+        }
+
+        .service-icon {
+            color: var(--primary-teal);
+            font-size: 0.8rem;
+            margin-top: 4px;
+        }
+
+        /* ============================================
+           FOOTER SECTION
+           ============================================ */
+        .footer-section {
+            background: var(--obsidian-light);
+            padding: 60px 20px;
+            border-top: 1px solid var(--glass-border);
             text-align: center;
         }
 
-        .mission-bar h1 {
-            font-size: 2.8rem;
-            margin: 0;
-            color: white;
+        .mission-statement {
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .mission-title {
+            font-size: 1.3rem;
+            color: var(--primary-teal);
+            margin-bottom: 12px;
             letter-spacing: 3px;
+            text-transform: uppercase;
         }
 
-        .mission-bar p {
-            color: var(--primary-green);
-            font-size: 1.1rem;
-            margin-top: 10px;
-            font-weight: 300;
+        .mission-text {
+            font-size: 1rem;
+            color: var(--text-gray);
+            line-height: 1.8;
         }
 
-        /* Rest of the grid... */
-        .container {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
         }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-gray);
+            text-decoration: none;
+            padding: 12px 20px;
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            transition: var(--transition-smooth);
+            font-size: 0.95rem;
         }
 
-        .card {
-            background: var(--glass);
-            padding: 30px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: 0.3s ease;
+        .social-link:hover {
+            color: var(--primary-teal);
+            border-color: var(--primary-teal);
+            background: var(--glass-bg);
         }
 
-        .card:hover { border-color: var(--primary-green); }
+        .social-link i {
+            font-size: 1.2rem;
+        }
 
-        .card h2 { color: var(--primary-green); margin-top: 0; }
+        .copyright {
+            margin-top: 40px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
 
-        .card ul { list-style: none; padding: 0; color: var(--text-gray); }
+        /* ============================================
+           ANIMATIONS
+           ============================================ */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-        .card li { margin-bottom: 12px; padding-left: 20px; position: relative; }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-        .card li::before { content: "▹"; position: absolute; left: 0; color: var(--primary-green); }
+        /* Staggered animation for cards */
+        .pillar-card:nth-child(1) { animation: fadeInUp 0.6s ease-out 0.3s both; }
+        .pillar-card:nth-child(2) { animation: fadeInUp 0.6s ease-out 0.5s both; }
+        .pillar-card:nth-child(3) { animation: fadeInUp 0.6s ease-out 0.7s both; }
 
-        footer { text-align: center; padding: 60px 20px; border-top: 1px solid #222; }
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
+        @media (max-width: 768px) {
+            .company-header {
+                padding: 40px 20px;
+            }
 
-        .social-links a { color: white;
+            .hero-section {
+                padding: 60px 20px;
+            }
+
+            .pillars-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pillar-card {
+                padding: 30px 24px;
+            }
+
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .social-link {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .company-name {
+                letter-spacing: 2px;
+            }
+
+            .pillar-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ============================================
+         BANNER SECTION - Digital Gaia Motif
+         ============================================ -->
+    <header class="banner-section">
+        <img src="banner.png" alt="Better Planet LLC - Digital Gaia" class="banner-image">
+    </header>
+
+    <!-- Company Header -->
+    <section class="company-header">
+        <h1 class="company-name">Better Planet LLC</h1>
+        <p class="ethos-tagline">"Improve the Planet"</p>
+    </section>
+
+    <!-- ============================================
+         HERO SECTION - Introduction
+         ============================================ -->
+    <section class="hero-section">
+        <h2 class="hero-title">Technology. Infrastructure. Strategy.</h2>
+        <p class="hero-subtitle">
+            A multi-pillar enterprise delivering innovative solutions across technology development, 
+            IT infrastructure, and strategic consulting—empowering businesses to build a better future.
+        </p>
+    </section>
+
+    <!-- ============================================
+         SERVICES GRID - Three Pillars
+         ============================================ -->
+    <main class="services-section">
+        <div class="pillars-grid">
+            <!-- Pillar 1: Tech & Software Development -->
+            <article class="pillar-card">
+                <i class="fas fa-code pillar-icon"></i>
+                <h3 class="pillar-title">Tech & Software</h3>
+                <p class="pillar-subtitle">Software Development</p>
+                <ul class="services-list">
+                    <li>
+                        <i class="fas fa-chevron-right service-icon"></i>
+                        <span>SaaS Product Sales</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-chevron-right service-icon"></i>
+                        <span>Contract Development Billing</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-chevron-right service-icon"></i>
+                        <span>Remote Tech Support</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-chevron-right service-icon"></i>
+                        <span>Browser Extension Development</span>
+                    </li>
+                </ul>
+            </article>
+
+            <!-- Pillar 2: IT Infrastructure -->
+            <article class="pillar-card">
+                <i class="fas fa-server pillar-icon"></i>
+                <h3 class="pillar-title">IT Infrastructure</h3>
+                <p class="pillar-subtitle">Enterprise Solutions</p>
+                <ul class="services-list">
+                    <li>
+                        <i class="fas fa-chevron-right service-icon"></i>
+                        <span>Enterprise Data Recovery & Storage</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-chevron-right service-icon"></i>
+                        <span>Custom PC Builds</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-chevron-right service-icon"></i>
+                        <span>Local IT Hardware Services</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-chevron-right service-icon"></i>
+                        <span>Managed Asset & Equipment Rentals</span>
+                    </li>
+                </ul>
+            </article>
+
+            <!-- Pillar 3: Strategic Consulting -->
+            <article class="pillar-card">
+                <i class="fas fa-lightbulb pillar-icon"></i>
+                <h3 class="pillar-title">Strategic Consulting</h3>
+                <p class="pillar-subtitle">Business Advisory</p>
+                <ul class="services-list">
+                    <li>
+                        <i class="fas fa-chevron-right service-icon"></i>
+                        <span>B2B Recruitment & Talent Sourcing</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-chevron-right service-icon"></i>
+                        <span>Business Operations Consulting</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-chevron-right service-icon"></i>
+                        <span>Life Coaching & Advisory</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-chevron-right service-icon"></i>
+                        <span>Contract Labor Management</span>
+                    </li>
+                </ul>
+            </article>
+        </div>
+    </main>
+
+    <!-- ============================================
+         FOOTER - Mission & Social Links
+         ============================================ -->
+    <footer class="footer-section">
+        <div class="mission-statement">
+            <h4 class="mission-title">Our Mission</h4>
+            <p class="mission-text">
+                Better Planet LLC exists to improve the planet through innovative technology, 
+                reliable infrastructure, and strategic insight—helping businesses and individuals 
+                thrive in the digital age.
+            </p>
+        </div>
+
+        <nav class="social-links">
+            <a href="#" class="social-link" aria-label="X (Twitter)">
+                <i class="fab fa-x-twitter"></i>
+                <span>X</span>
+            </a>
+            <a href="#" class="social-link" aria-label="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+                <span>LinkedIn</span>
+            </a>
+            <a href="#" class="social-link" aria-label="Email">
+                <i class="fas fa-envelope"></i>
+                <span>Email</span>
+            </a>
+        </nav>
+
+        <p class="copyright">&copy; 2026 Better Planet LLC. All rights reserved.</p>
+    </footer>
+</body>
+</html>
