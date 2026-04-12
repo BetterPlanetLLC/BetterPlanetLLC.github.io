@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Better Planet LLC | Tech, IT & Strategic Solutions</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://www.paypal.com/sdk/js?client-id=BAAd0jPG66xhhaBGTHXwhcEN6th2zQtJ_vxVd54xL-uW7Eg5sOYtzf0lhOdri8ahuxJZfs_Yt_qUsUkWgY&components=hosted-buttons&enable-funding=venmo&currency=USD"></script>
     <style>
         /* ============================================
            CSS CUSTOM PROPERTIES - Design Tokens
@@ -293,6 +292,12 @@
             letter-spacing: 1px;
         }
 
+        .donate-container {
+            transform: scale(0.75);
+            transform-origin: top center;
+            display: inline-block;
+        }
+
         /* ============================================
            ANIMATIONS
            ============================================ */
@@ -502,16 +507,20 @@
         </nav>
 
         <div class="donate-section">
-            <p class="donate-text">Donate on PayPal</p>
-            <div id="paypal-container-JFVNZWZ4LZPL8"></div>
+            <p class="donate-text">Set Your Donation Amount (USD)</p>
+            <div class="donate-container">
+                <div>
+                    <style>.pp-JFVNZWZ4LZPL8{text-align:center;border:none;border-radius:1.5rem;min-width:11.625rem;padding:0 2rem;height:2rem;font-weight:bold;background-color:#14ff24;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:0.875rem;line-height:1.125rem;cursor:pointer;}</style>
+                    <form action="https://www.paypal.com/ncp/payment/JFVNZWZ4LZPL8" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+                        <input class="pp-JFVNZWZ4LZPL8" type="submit" value="Donate Now" />
+                        <img src="https://www.paypalobjects.com/images/Debit_Credit.svg" alt="cards" />
+                        <section style="font-size: 0.75rem;"> Powered by <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;"/></section>
+                    </form>
+                </div>
+            </div>
         </div>
 
         <p class="copyright">&copy; 2026 Better Planet LLC. All rights reserved.</p>
     </footer>
-    <script>
-        paypal.HostedButtons({
-            hostedButtonId: "JFVNZWZ4LZPL8",
-        }).render("#paypal-container-JFVNZWZ4LZPL8");
-    </script>
 </body>
 </html>
