@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Better Planet LLC | Tech, IT & Strategic Solutions</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://www.paypal.com/sdk/js?client-id=BAAd0jPG66xhhaBGTHXwhcEN6th2zQtJ_vxVd54xL-uW7Eg5sOYtzf0lhOdri8ahuxJZfs_Yt_qUsUkWgY&components=hosted-buttons&enable-funding=venmo&currency=USD"></script>
     <style>
         /* ============================================
            CSS CUSTOM PROPERTIES - Design Tokens
@@ -280,6 +281,18 @@
             color: var(--text-muted);
         }
 
+        .donate-section {
+            margin-top: 30px;
+            padding: 20px;
+        }
+
+        .donate-text {
+            font-size: 1rem;
+            color: var(--primary-teal);
+            margin-bottom: 16px;
+            letter-spacing: 1px;
+        }
+
         /* ============================================
            ANIMATIONS
            ============================================ */
@@ -362,12 +375,11 @@
     </header>
 
     <!-- Company Header -->
-    <!--
     <section class="company-header">
         <h1 class="company-name">Better Planet LLC</h1>
         <p class="ethos-tagline">"Improve the Planet"</p>
     </section>
- -->
+
     <!-- ============================================
          HERO SECTION - Introduction
          ============================================ -->
@@ -489,7 +501,17 @@
             </a>
         </nav>
 
+        <div class="donate-section">
+            <p class="donate-text">Donate on PayPal</p>
+            <div id="paypal-container-JFVNZWZ4LZPL8"></div>
+        </div>
+
         <p class="copyright">&copy; 2026 Better Planet LLC. All rights reserved.</p>
     </footer>
+    <script>
+        paypal.HostedButtons({
+            hostedButtonId: "JFVNZWZ4LZPL8",
+        }).render("#paypal-container-JFVNZWZ4LZPL8");
+    </script>
 </body>
 </html>
