@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Better Planet LLC - Elite Technical Staffing & Engineering Squads. Deploying vetted mid-to-senior software developers with pedigrees from Google, Amazon, IBM for Engineering Squads, Staff Augmentation, and Fractional CTO services.">
+    <meta property="og:title" content="Better Planet LLC - Elite Technical Staffing">
+    <meta property="og:description" content="Deploying vetted mid-to-senior software developers from Google, Amazon, IBM.">
+    <meta property="og:type" content="website">
+    <title>Better Planet LLC | Elite Technical Staffing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            900: '#0A192F',
+                            800: '#0F2744',
+                            700: '#1A3A5C',
+                        },
+                        slate: {
+                            400: '#94A3B8',
+                            300: '#CBD5E1',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #2DD4BF 0%, #14B8A6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 255, 204, 0.15), 0 0 30px rgba(0, 255, 204, 0.1);
+            border-color: #00ffcc;
+        }
+        .card-hover:hover .text-teal-400 {
+            color: #00ffcc;
+        }
+        .nav-scrolled {
+            background-color: rgba(10, 25, 47, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .toast {
+            animation: slideInRight 0.5s ease-out forwards;
+        }
+        @keyframes slideInRight {
+            0% { transform: translateX(100%); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-navy-900 text-white font-sans">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#" class="flex items-center gap-3 text-xl md:text-2xl font-bold">
+                    <img src="Avatar_Image.jpg" alt="Better Planet" class="w-10 h-10 rounded-lg">
+                    <span class="gradient-text">Better Planet</span>
+                    <span class="text-slate-400"> LLC</span>
+                </a>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#services" class="text-slate-300 hover:text-teal-400 transition-colors">Services</a>
+                    <a href="#vetting" class="text-slate-300 hover:text-teal-400 transition-colors">Quality Benchmark</a>
+                    <a href="#industries" class="text-slate-300 hover:text-teal-400 transition-colors">Industries</a>
+                    <a href="#contact" class="text-slate-300 hover:text-teal-400 transition-colors">Contact</a>
+                </div>
+                <a href="#contact" class="bg-teal-500 hover:bg-teal-600 text-navy-900 font-semibold px-5 py-2 rounded-lg transition-colors text-sm md:text-base">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="relative min-h-[60vh] flex items-center justify-center bg-gradient-to-b from-navy-900 via-navy-800 to-navy-900 pt-24 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="bannerimage-notext.jpg" alt="" class="w-full h-full object-cover opacity-20">
+        </div>
+        <div class="relative z-10 max-w-4xl mx-auto px-6 py-12 text-center">
+            <div class="space-y-6">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                    Elite Engineering<br>
+                    <span class="gradient-text">When You Need It</span>
+                </h1>
+                <p class="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto">
+                    We deploy vetted mid-to-senior software developers with proven workplace success at large companies like Google, Amazon, and IBM for Engineering Squads, Staff Augmentation, and Fractional CTO engagements.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+                    <a href="#contact" class="bg-teal-500 hover:bg-teal-600 text-navy-900 font-bold px-8 py-4 rounded-lg text-center transition-colors text-lg">
+                        Request Talent
+                    </a>
+                    <a href="#services" class="border border-slate-600 hover:border-teal-400 text-white font-semibold px-8 py-4 rounded-lg text-center transition-colors text-lg">
+                        View Services
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- How We Deploy (moved up) -->
+    <section id="services" class="py-8 bg-navy-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">How We Deploy</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">Three engagement models designed to scale your engineering capacity from day one.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Engineering Squads -->
+                <div class="bg-navy-800 rounded-2xl p-8 border border-navy-700 card-hover">
+                    <div class="w-14 h-14 bg-teal-500/10 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">High-Velocity Engineering Squads</h3>
+    <p class="text-slate-400 mb-4">Scalable, cross-functional units tailored to your project roadmap. Pre-vetted for collaborative synergy and technical precision.</p>
+    <ul class="space-y-2 text-slate-300 text-sm">
+        <li>• <span class="text-teal-400 font-semibold">Customizable Headcount:</span> Tailored to project complexity.</li>
+        <li>• <span class="text-teal-400 font-semibold">Integrated Leadership:</span> Includes lead-level technical oversight.</li>
+        <li>• <span class="text-teal-400 font-semibold">Agile-Native:</span> Ready to integrate into your existing Sprints.</li>
+    </ul>
+</div>
+
+                <!-- Staff Augmentation -->
+                <div class="bg-navy-800 rounded-2xl p-8 border border-navy-700 card-hover">
+    <div class="w-14 h-14 bg-teal-500/10 rounded-xl flex items-center justify-center mb-6">
+        <svg class="w-7 h-7 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+        </svg>
+    </div>
+    <h3 class="text-xl font-bold text-white mb-3">Staff Augmentation</h3>
+    <p class="text-slate-400 mb-4">Targeted senior expertise embedded directly into your internal teams to accelerate mission-critical features.</p>
+    <ul class="space-y-2 text-slate-300 text-sm">
+        <li>• <span class="text-teal-400 font-semibold">Specialized Talent:</span> Niche expertise for complex technical bottlenecks.</li>
+        <li>• <span class="text-teal-400 font-semibold">Cultural Alignment:</span> Engineers vetted for US-based corporate integration.</li>
+        <li>• <span class="text-teal-400 font-semibold">Frictionless Scaling:</span> Flexible engagement models to match your budget cycles.</li>
+    </ul>
+</div>
+
+                <!-- Fractional CTO -->
+                <div class="bg-navy-800 rounded-2xl p-8 border border-navy-700 card-hover">
+    <div class="w-14 h-14 bg-teal-500/10 rounded-xl flex items-center justify-center mb-6">
+        <svg class="w-7 h-7 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+        </svg>
+    </div>
+    <h3 class="text-xl font-bold text-white mb-3">Fractional CTO & Advisory</h3>
+    <p class="text-slate-400 mb-4">Strategic technical leadership and high-stakes architectural oversight without the full-time executive overhead.</p>
+    <ul class="space-y-2 text-slate-300 text-sm">
+        <li>• <span class="text-teal-400 font-semibold">Strategic Roadmap:</span> Alignment of technical architecture with long-term business goals.</li>
+        <li>• <span class="text-teal-400 font-semibold">Technical Audits:</span> Deep-dive due diligence on codebase health and security compliance.</li>
+        <li>• <span class="text-teal-400 font-semibold">Leadership Coaching:</span> Mentorship for internal engineering leads and squad optimization.</li>
+    </ul>
+</div>
+    </section>
+
+    <!-- Vetting Matrix -->
+    <section id="vetting" class="py-24 bg-navy-800">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">The Better Planet Quality Benchmark</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">We bypass the noise of traditional recruiting through a focused, four-pillar technical audit designed for high-compliance and enterprise environments.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="bg-navy-900 rounded-2xl p-6 border border-navy-700 card-hover">
+                    <div class="w-14 h-14 bg-teal-500/10 rounded-xl flex items-center justify-center mb-5">
+                        <svg class="w-7 h-7 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-white font-bold text-lg mb-3">Pedigree & Progression</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">We prioritize candidates with a proven history at Tier-1 technology firms or a clear trajectory of increasing technical responsibility.</p>
+                </div>
+                <div class="bg-navy-900 rounded-2xl p-6 border border-navy-700 card-hover">
+                    <div class="w-14 h-14 bg-teal-500/10 rounded-xl flex items-center justify-center mb-5">
+                        <svg class="w-7 h-7 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-white font-bold text-lg mb-3">Communication Clarity</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">Every candidate is assessed on their ability to explain complex technical logic and collaborate effectively within a global team structure.</p>
+                </div>
+                <div class="bg-navy-900 rounded-2xl p-6 border border-navy-700 card-hover">
+                    <div class="w-14 h-14 bg-teal-500/10 rounded-xl flex items-center justify-center mb-5">
+                        <svg class="w-7 h-7 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-white font-bold text-lg mb-3">Technical Specification</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">We audit the candidate's specific mastery of their primary stack, ensuring they are project-ready with minimal ramp-up time.</p>
+                </div>
+                <div class="bg-navy-900 rounded-2xl p-6 border border-navy-700 card-hover">
+                    <div class="w-14 h-14 bg-teal-500/10 rounded-xl flex items-center justify-center mb-5">
+                        <svg class="w-7 h-7 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-white font-bold text-lg mb-3">Operational Alignment</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">We verify the candidate's professional reliability, including clearance status (where applicable) and historical commitment to project lifecycles.</p>
+                </div>
+            </div>
+
+            <div class="bg-navy-900 rounded-2xl p-8 border border-teal-500/30 text-center">
+                <div class="flex items-center justify-center gap-3 mb-4">
+                    <svg class="w-8 h-8 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    </svg>
+                    <h3 class="text-teal-400 font-bold text-2xl">The Better Planet Commitment</h3>
+                </div>
+                <p class="text-slate-400 max-w-3xl mx-auto leading-relaxed">We stand by our curation. If a placed candidate does not meet your technical or cultural expectations during the initial onboarding period, we provide priority replacement to ensure your project timeline remains on track. Our focus is on long-term project stability, not just filling a seat.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry Specialization -->
+    <section id="industries" class="py-24 bg-navy-900">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Industry Specialization</h2>
+            <p class="text-slate-400 max-w-2xl mx-auto">We deploy specialized engineering talent to sectors where technical failure is not an option and regulatory compliance is the baseline.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-navy-800 rounded-2xl p-8 border border-navy-700 card-hover">
+                <div class="w-14 h-14 bg-teal-500/10 rounded-xl flex items-center justify-center mb-6">
+                    <svg class="w-7 h-7 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">FinTech & Banking</h3>
+                <p class="text-slate-400 mb-4">Engineers experienced in high-concurrency payment rails and complex regulatory frameworks including SEC and PCI-DSS.</p>
+                <ul class="space-y-2 text-slate-300 text-sm">
+                    <li>• <span class="text-teal-400 font-semibold">Transactional Integrity:</span> Fault-tolerant ledger and payment systems.</li>
+                    <li>• <span class="text-teal-400 font-semibold">Compliance-Ready:</span> Built for FINRA, SEC, and blockchain audit trails.</li>
+                    <li>• <span class="text-teal-400 font-semibold">Security First:</span> Advanced encryption and zero-knowledge protocols.</li>
+                </ul>
+            </div>
+
+            <div class="bg-navy-800 rounded-2xl p-8 border border-navy-700 card-hover">
+                <div class="w-14 h-14 bg-teal-500/10 rounded-xl flex items-center justify-center mb-6">
+                    <svg class="w-7 h-7 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Healthcare IT</h3>
+                <p class="text-slate-400 mb-4">Specialized talent for HIPAA-compliant patient platforms and mission-critical medical device integrations.</p>
+                <ul class="space-y-2 text-slate-300 text-sm">
+                    <li>• <span class="text-teal-400 font-semibold">Data Privacy:</span> Rigorous HIPAA and EHR/EMR data governance.</li>
+                    <li>• <span class="text-teal-400 font-semibold">Interoperability:</span> FHIR/HL7 integration for medical ecosystems.</li>
+                    <li>• <span class="text-teal-400 font-semibold">Patient-Centric:</span> High-availability telehealth and diagnostic UX.</li>
+                </ul>
+            </div>
+
+            <div class="bg-navy-800 rounded-2xl p-8 border border-navy-700 card-hover">
+                <div class="w-14 h-14 bg-teal-500/10 rounded-xl flex items-center justify-center mb-6">
+                    <svg class="w-7 h-7 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-3">Defense & Gov</h3>
+                <p class="text-slate-400 mb-4">Our pipeline includes security-cleared engineers ready for FedRAMP, IL-4/5, and air-gapped environments.</p>
+                <ul class="space-y-2 text-slate-300 text-sm">
+                    <li>• <span class="text-teal-400 font-semibold">Cleared Talent:</span> Active Secret and TS/SCI vetted professionals.</li>
+                    <li>• <span class="text-teal-400 font-semibold">Cloud Sovereignty:</span> AWS GovCloud and Azure Government experts.</li>
+                    <li>• <span class="text-teal-400 font-semibold">Zero-Trust:</span> Implementation of robust identity and access governance.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-24 bg-navy-800">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Deploy Your Team</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">Tell us about your project and we'll match you with pre-vetted talent within 48 hours.</p>
+            </div>
+
+            <form id="contact-form" action="https://formspree.io/f/xgorrbky" method="POST" class="bg-navy-900 rounded-2xl p-8 border border-navy-700">
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-slate-300 mb-2 text-sm">Name</label>
+                        <input type="text" name="name" required class="w-full bg-navy-800 border border-navy-700 rounded-lg px-4 py-3 text-white focus:border-teal-400 focus:outline-none transition-colors" placeholder="Your Name">
+                    </div>
+                    <div>
+                        <label class="block text-slate-300 mb-2 text-sm">Email</label>
+                        <input type="email" name="email" required class="w-full bg-navy-800 border border-navy-700 rounded-lg px-4 py-3 text-white focus:border-teal-400 focus:outline-none transition-colors" placeholder="YourName@company.com">
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-slate-300 mb-2 text-sm">Company</label>
+                        <input type="text" name="company" class="w-full bg-navy-800 border border-navy-700 rounded-lg px-4 py-3 text-white focus:border-teal-400 focus:outline-none transition-colors" placeholder="Your Company">
+                    </div>
+                    <div>
+                        <label class="block text-slate-300 mb-2 text-sm">Engagement Type</label>
+                        <select name="service" class="w-full bg-navy-800 border border-navy-700 rounded-lg px-4 py-3 text-white focus:border-teal-400 focus:outline-none transition-colors">
+                            <option value="">Select an option</option>
+                            <option value="hire">I am looking to hire talent</option>
+                            <option value="candidate">I am a candidate looking for roles</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-slate-300 mb-2 text-sm">Project Details</label>
+                    <textarea name="message" rows="4" class="w-full bg-navy-800 border border-navy-700 rounded-lg px-4 py-3 text-white focus:border-teal-400 focus:outline-none transition-colors resize-none" placeholder="Tell us about your technical requirements, timeline, and team size..."></textarea>
+                </div>
+                <button type="submit" class="w-full bg-teal-500 hover:bg-teal-600 text-navy-900 font-bold py-4 rounded-lg transition-colors text-lg">
+                    Request Talent Assessment
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-navy-900 border-t border-navy-700">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div>
+                    <a href="#" class="text-xl font-bold">
+                        <span class="gradient-text">Better Planet</span>
+                        <span class="text-slate-400"> LLC</span>
+                    </a>
+                    <p class="text-slate-400 mt-2 text-sm">Elite Technical Staffing & Engineering Squads</p>
+                </div>
+                <div class="flex gap-6">
+                    <a href="#services" class="text-slate-400 hover:text-teal-400 transition-colors text-sm">Services</a>
+                    <a href="#vetting" class="text-slate-400 hover:text-teal-400 transition-colors text-sm">Quality</a>
+                    <a href="#industries" class="text-slate-400 hover:text-teal-400 transition-colors text-sm">Industries</a>
+                    <a href="#contact" class="text-slate-400 hover:text-teal-400 transition-colors text-sm">Contact</a>
+                </div>
+            </div>
+            <div class="text-center mt-8 pt-8 border-t border-navy-700">
+                <p class="text-slate-500 text-sm">© 2024 Better Planet LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
