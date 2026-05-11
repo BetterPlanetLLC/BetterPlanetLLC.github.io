@@ -123,6 +123,15 @@
                 </div>
             </div>
 
+                <div class="mb-8 max-w-md">
+    <label class="block text-xs text-teal-400 uppercase tracking-widest font-bold mb-2">Jump to Candidate Code</label>
+    <div class="relative">
+        <input type="text" id="talentSearch" placeholder="Search by number (e.g. 448)" 
+               class="w-full bg-navy-800 border border-slate-700 p-3 rounded text-white focus:border-teal-400 outline-none transition-all font-mono">
+        <div id="searchFeedback" class="absolute right-3 top-3 text-xs text-slate-500 font-mono"></div>
+    </div>
+</div>
+
             <div id="benchContainer" class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 scroll-smooth pt-4">
                 
                 <div class="talent-card snap-start bg-navy-800 p-8 rounded-xl border border-slate-700/50 hover-lift flex flex-col justify-between">
@@ -952,30 +961,81 @@
     </footer>
 
     <script>
-        // Smooth horizontal scrolling logic for Talent Bench
-        function scrollBench(direction) {
-            const container = document.getElementById('benchContainer');
-            const card = container.querySelector('.talent-card');
-            
-            // Calculate width of one card + the flex gap (24px for tailwind gap-6)
-            const scrollAmount = card.offsetWidth + 24; 
-            
-            if (direction === 'left') {
-                container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-            } else {
-                container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+       // Function for manual arrow buttons
+function scrollBench(direction) {
+    const container = document.getElementById('benchContainer');
+    const card = container.querySelector('.talent-card');
+    const scrollAmount = card.offsetWidth + 24; 
+    
+    if (direction === 'left') {
+        container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    } else {
+        container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+}
+
+// Navbar blur effect
+window.addEventListener('scroll', () => {
+    const navbar = document.getElementById('navbar');
+    if (window.scrollY > 20) {
+        navbar.classList.add('nav-scrolled');
+    } else {
+        navbar.classList.remove('nav-scrolled');
+    }
+});
+
+// FIXED Search Logic
+document.getElementById('talentSearch').addEventListener('input', function(e) {
+    // Clean the input: remove "BP-" and spaces, leave only numbers
+    const rawInput = e.target.value.trim();
+    const numericQuery = rawInput.replace(/\D/g, ""); 
+    const feedback = document.getElementById('searchFeedback');
+    
+    // Don't trigger until we have at least 3 digits
+    if (numericQuery.length < 3) {
+        feedback.textContent = "";
+        return;
+    }
+
+    const cards = document.querySelectorAll('.talent-card');
+    let found = false;
+
+    cards.forEach(card => {
+        const refSpan = card.querySelector('span');
+        if (refSpan) {
+            const cardRefText = refSpan.textContent; // e.g., "Ref: BP-422"
+            const cardNumeric = cardRefText.replace(/\D/g, ""); // e.g., "422"
+
+            if (cardNumeric === numericQuery) {
+                // Force scroll and disable snap momentarily for precision
+                const container = document.getElementById('benchContainer');
+                container.style.scrollSnapType = "none";
+                
+                card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                
+                // Re-enable snap after animation
+                setTimeout(() => {
+                    container.style.scrollSnapType = "x mandatory";
+                }, 600);
+
+                // Visual Highlight
+                card.classList.add('border-teal-400', 'ring-2', 'ring-teal-400/50');
+                setTimeout(() => {
+                    card.classList.remove('border-teal-400', 'ring-2', 'ring-teal-400/50');
+                }, 3000);
+                
+                feedback.textContent = "MATCH FOUND";
+                feedback.className = "absolute right-3 top-3 text-xs font-mono text-teal-400";
+                found = true;
             }
         }
+    });
 
-        // Navbar blur and border effect on scroll
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 20) {
-                navbar.classList.add('nav-scrolled');
-            } else {
-                navbar.classList.remove('nav-scrolled');
-            }
-        });
+    if (!found && numericQuery.length >= 3) {
+        feedback.textContent = "NOT FOUND";
+        feedback.className = "absolute right-3 top-3 text-xs font-mono text-rose-400";
+    }
+});
     </script>
 </body>
 </html>
