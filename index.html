@@ -108,11 +108,23 @@
 
     <section id="bench" class="py-24 bg-navy-900 relative">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6 border-b border-slate-800 pb-6">
-                <div>
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-2 tracking-tight">Featured Talent Bench</h2>
-                    <p class="text-teal-400 font-mono text-sm">62 Vetted Candidates (Refreshed May 2026)</p>
+        <div class="flex flex-col gap-8 mb-12 border-b border-slate-800 pb-8">
+            
+            <div class="text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-2 tracking-tight">Featured Talent Bench</h2>
+                <p class="text-teal-400 font-mono text-sm">62 Vetted Candidates (Refreshed April 2026)</p>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-end justify-between gap-6">
+                <div class="w-full md:max-w-md">
+                    <label class="block text-xs text-teal-400 uppercase tracking-widest font-bold mb-2">Jump to Candidate Code</label>
+                    <div class="relative">
+                        <input type="text" id="talentSearch" placeholder="Search by number (e.g. 448)" 
+                               class="w-full bg-navy-800 border border-slate-700 p-3 rounded text-white focus:border-teal-400 outline-none transition-all font-mono">
+                        <div id="searchFeedback" class="absolute right-3 top-3 text-xs font-mono"></div>
+                    </div>
                 </div>
+
                 <div class="flex gap-4">
                     <button onclick="scrollBench('left')" aria-label="Scroll left" class="p-3 bg-navy-800/80 border border-slate-700 text-teal-400 rounded-full hover:bg-slate-800 hover:border-teal-400 transition-all focus:outline-none backdrop-blur-md shadow-lg">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
@@ -122,15 +134,7 @@
                     </button>
                 </div>
             </div>
-
-                <div class="mb-8 max-w-md">
-    <label class="block text-xs text-teal-400 uppercase tracking-widest font-bold mb-2">Jump to Candidate Code</label>
-    <div class="relative">
-        <input type="text" id="talentSearch" placeholder="Search by number (e.g. 448)" 
-               class="w-full bg-navy-800 border border-slate-700 p-3 rounded text-white focus:border-teal-400 outline-none transition-all font-mono">
-        <div id="searchFeedback" class="absolute right-3 top-3 text-xs text-slate-500 font-mono"></div>
-    </div>
-</div>
+        </div>
 
             <div id="benchContainer" class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 scroll-smooth pt-4">
                 
