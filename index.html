@@ -119,7 +119,7 @@
                 <div class="w-full md:max-w-md">
                     <label class="block text-xs text-teal-400 uppercase tracking-widest font-bold mb-2">Jump to Candidate Code</label>
                     <div class="relative">
-                        <input type="text" id="talentSearch" placeholder="Search by number 400-516 (e.g. 448)" 
+                        <input type="text" id="talentSearch" placeholder="Search by number 400-564 (e.g. 448)" 
                                class="w-full bg-navy-800 border border-slate-700 p-3 rounded text-white focus:border-teal-400 outline-none transition-all font-mono">
                         <div id="searchFeedback" class="absolute right-3 top-3 text-xs font-mono"></div>
                     </div>
@@ -1814,15 +1814,20 @@
 
     <script>
        // Function for manual arrow buttons
+// Function for manual arrow buttons (scrolling 3 cards at a time)
 function scrollBench(direction) {
     const container = document.getElementById('benchContainer');
     const card = container.querySelector('.talent-card');
-    const scrollAmount = card.offsetWidth + 24; 
     
-    if (direction === 'left') {
-        container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-    } else {
-        container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    if (card) {
+        // Multiply the width of a single card and its gap by 3
+        const scrollAmount = (card.offsetWidth + 24) * 3; 
+        
+        if (direction === 'left') {
+            container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        } else {
+            container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
     }
 }
 
