@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth snap-y snap-mandatory">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link class="scroll-smooth" rel="icon" type="image/jpeg" href="Avatar_Image.jpg">
+    <link rel="icon" type="image/jpeg" href="Avatar_Image.jpg">
     <title>Better Planet LLC | Elite Technical Staffing</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -60,7 +60,7 @@
         </div>
     </nav>
 
-    <section id="hero" class="relative h-[85vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+    <section id="hero" class="snap-start relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
         <img src="bannerimage-notext.jpg" class="absolute inset-0 w-full h-full object-cover opacity-40" alt="Hero Background">
         <div class="absolute inset-0 bg-gradient-to-b from-navy-900/40 via-navy-900/70 to-navy-900"></div>
         <div class="relative z-10 max-w-5xl mx-auto px-6 text-center mt-16">
@@ -77,64 +77,37 @@
         </div>
     </section>
 
-    <!--<div class="bg-navy-800/60 py-10 border-y border-slate-800 backdrop-blur-sm relative z-20">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <p class="text-teal-400 font-mono text-xs mb-6 uppercase tracking-[0.25em] font-semibold opacity-80">Deploying Talent with Pedigrees From</p>
-            <div class="flex flex-wrap justify-center items-center gap-x-10 gap-y-6 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-                <span class="font-bold text-lg md:text-xl text-white tracking-widest">NVIDIA</span>
-                <span class="font-bold text-lg md:text-xl text-white tracking-widest">META</span>
-                <span class="font-bold text-lg md:text-xl text-white tracking-widest">GOOGLE</span>
-                <span class="font-bold text-lg md:text-xl text-white tracking-widest">APPLE</span>
-                <span class="font-bold text-lg md:text-xl text-white tracking-widest">AMAZON</span>
-                <span class="font-bold text-lg md:text-xl text-white tracking-widest">NYSE</span>
-                <span class="font-bold text-lg md:text-xl text-white tracking-widest">WALMART</span>
-                <span class="font-bold text-lg md:text-xl text-white tracking-widest">CITIGROUP</span>
-                <span class="font-bold text-lg md:text-xl text-white tracking-widest">PAYPAL</span>
-                <span class="font-bold text-lg md:text-xl text-white tracking-widest">EBAY</span>
-                <span class="font-bold text-lg md:text-xl text-white tracking-widest">AIRBNB</span>
-                <span class="font-bold text-lg md:text-xl text-white tracking-widest">CVS</span>
-                <span class="font-bold text-lg md:text-xl text-white tracking-widest">IBM</span>
-                <span class="font-bold text-lg md:text-xl text-white tracking-widest">INTEL</span>
-                <span class="font-bold text-lg md:text-xl text-white tracking-widest">GOLDMAN SACHS</span>
-                <span class="font-bold text-lg md:text-xl text-white tracking-widest">CISCO</span>
-                <span class="font-bold text-lg md:text-xl text-white tracking-widest">WELLS FARGO</span>
-                <span class="font-bold text-lg md:text-xl text-white tracking-widest">BANK OF AMERICA</span>
-                <span class="font-bold text-lg md:text-xl text-white tracking-widest">GOVERNMENT AGENCIES</span>
-                <span class="font-bold text-lg md:text-xl text-white tracking-widest">STATE FEDERAL RESERVE BANKS</span>
-                <span class="font-bold text-lg md:text-xl text-white tracking-widest italic">& MORE</span>
-            </div>
-        </div>
-    </div> -->
+    <!-- Subtle Section Divider -->
+    <hr class="w-4/5 mx-auto border-t border-slate-800/80">
 
-    <section id="bench" class="py-24 bg-navy-900 relative">
-        <div class="max-w-7xl mx-auto px-6">
-        <div class="flex flex-col gap-8 mb-12 border-b border-slate-800 pb-8">
-            
-            <div class="text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-2 tracking-tight">Talent Bench Preview</h2>
-                <p class="text-teal-400 font-mono text-sm">Vetted Candidates (Refreshed August 2026)</p>
-            </div>
+    <section id="bench" class="snap-start min-h-screen py-24 bg-navy-900 relative flex flex-col justify-center">
+        <div class="max-w-7xl mx-auto px-6 w-full">
+            <div class="flex flex-col gap-8 mb-12 border-b border-slate-800 pb-8">
+                <div class="text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-2 tracking-tight">Talent Bench Preview</h2>
+                    <p class="text-teal-400 font-mono text-sm">Vetted Candidates (Refreshed August 2026)</p>
+                </div>
 
-            <div class="flex flex-col md:flex-row items-end justify-between gap-6">
-                <div class="w-full md:max-w-md">
-                    <label class="block text-xs text-teal-400 uppercase tracking-widest font-bold mb-2">Jump to Candidate Code</label>
-                    <div class="relative">
-                        <input type="text" id="talentSearch" placeholder="Search by number 400-611 (e.g. 555)" 
-                               class="w-full bg-navy-800 border border-slate-700 p-3 rounded text-white focus:border-teal-400 outline-none transition-all font-mono">
-                        <div id="searchFeedback" class="absolute right-3 top-3 text-xs font-mono"></div>
+                <div class="flex flex-col md:flex-row items-end justify-between gap-6">
+                    <div class="w-full md:max-w-md">
+                        <label class="block text-xs text-teal-400 uppercase tracking-widest font-bold mb-2">Jump to Candidate Code</label>
+                        <div class="relative">
+                            <input type="text" id="talentSearch" placeholder="Search by number 400-611 (e.g. 555)" 
+                                   class="w-full bg-navy-800 border border-slate-700 p-3 rounded text-white focus:border-teal-400 outline-none transition-all font-mono">
+                            <div id="searchFeedback" class="absolute right-3 top-3 text-xs font-mono"></div>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <button onclick="scrollBench('left')" aria-label="Scroll left" class="p-3 bg-navy-800/80 border border-slate-700 text-teal-400 rounded-full hover:bg-slate-800 hover:border-teal-400 transition-all focus:outline-none backdrop-blur-md shadow-lg">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+                        </button>
+                        <button onclick="scrollBench('right')" aria-label="Scroll right" class="p-3 bg-navy-800/80 border border-slate-700 text-teal-400 rounded-full hover:bg-slate-800 hover:border-teal-400 transition-all focus:outline-none backdrop-blur-md shadow-lg">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+                        </button>
                     </div>
                 </div>
-
-                <div class="flex gap-4">
-                    <button onclick="scrollBench('left')" aria-label="Scroll left" class="p-3 bg-navy-800/80 border border-slate-700 text-teal-400 rounded-full hover:bg-slate-800 hover:border-teal-400 transition-all focus:outline-none backdrop-blur-md shadow-lg">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
-                    </button>
-                    <button onclick="scrollBench('right')" aria-label="Scroll right" class="p-3 bg-navy-800/80 border border-slate-700 text-teal-400 rounded-full hover:bg-slate-800 hover:border-teal-400 transition-all focus:outline-none backdrop-blur-md shadow-lg">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
-                    </button>
-                </div>
             </div>
-        </div>
 
             <div id="benchContainer" class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 scroll-smooth pt-4">
                 
@@ -1613,7 +1586,7 @@
                     </a>
                 </div>
 
-                <!-- Candidate BP-565 -->
+<!-- Candidate BP-565 -->
 <div class="talent-card snap-start bg-navy-800 p-8 rounded-xl border border-slate-700/50 hover-lift flex flex-col justify-between">
     <div>
         <span class="bg-navy-900 px-3 py-1 rounded border border-slate-700 text-teal-400 font-mono text-xs inline-block mb-5 uppercase tracking-wider">Ref: BP-565</span>
@@ -2185,7 +2158,7 @@
         </div>
     </section>
 
-    <section id="services" class="py-24 bg-navy-800 relative">
+    <section id="services" class="snap-start min-h-screen py-24 bg-navy-800 relative flex flex-col justify-center">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">Flexible Engagement Models</h2>
@@ -2220,7 +2193,7 @@
         </div>
     </section>
 
-    <section id="commitment" class="py-24 bg-navy-900 border-t border-slate-800">
+    <section id="commitment" class="snap-start min-h-screen py-24 bg-navy-900 border-t border-slate-800 flex flex-col justify-center">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight">The Better Planet Quality Benchmark</h2>
@@ -2257,8 +2230,8 @@
         </div>
     </section>
 
-    <section id="contact" class="py-24 bg-navy-800 border-t border-slate-800">
-        <div class="max-w-4xl mx-auto px-6">
+    <section id="contact" class="snap-start min-h-screen py-24 bg-navy-800 border-t border-slate-800 flex flex-col justify-center">
+        <div class="max-w-4xl mx-auto px-6 w-full">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight">Partner With Us</h2>
                 <div class="inline-block bg-navy-900/50 border border-teal-400/20 px-6 py-4 rounded-xl">
@@ -2311,7 +2284,7 @@
         </div>
     </section>
 
-    <footer class="py-16 bg-navy-900 border-t border-slate-800 text-center">
+    <footer class="snap-start py-16 bg-navy-900 border-t border-slate-800 text-center">
     <div class="max-w-4xl mx-auto px-6">
         <a href="#" class="inline-flex items-center justify-center gap-3 mb-8 group transition-transform hover:-translate-y-1" aria-label="Scroll to top">
             <img src="Avatar_Image.jpg" alt="Logo" class="w-10 h-10 rounded group-hover:shadow-lg transition-shadow">
@@ -2333,8 +2306,7 @@
 </footer>
 
     <script>
-       // Function for manual arrow buttons
-// Function for manual arrow buttons (scrolling 3 cards at a time)
+       // Function for manual arrow buttons (scrolling 3 cards at a time)
 function scrollBench(direction) {
     const container = document.getElementById('benchContainer');
     const card = container.querySelector('.talent-card');
