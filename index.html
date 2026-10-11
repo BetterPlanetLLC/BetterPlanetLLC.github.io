@@ -2219,7 +2219,7 @@ Detailed, redacted candidate dossiers are available to qualified prospective cli
 
                 <div>
                     <label class="block text-xs text-slate-400 uppercase tracking-widest font-bold mb-3">Project Details / Requested Codes</label>
-                    <textarea name="message" rows="5" placeholder="Describe your technical needs, timeline, or any specific profiles you’d like to review." class="w-full bg-navy-800/50 border border-slate-600 p-4 rounded-lg text-white focus:border-teal-400 focus:bg-navy-800 outline-none transition-all resize-y"></textarea>
+                    <textarea id="message" name="message" rows="5" placeholder="Describe your technical needs, timeline, or any specific profiles you’d like to review." class="w-full bg-navy-800/50 border border-slate-600 p-4 rounded-lg text-white focus:border-teal-400 focus:bg-navy-800 outline-none transition-all resize-y"></textarea>
                 </div>
                 
                 <button type="submit" class="w-full bg-teal-400 text-navy-900 font-bold text-lg py-5 rounded-lg hover:bg-teal-500 transition-all transform hover:-translate-y-1 shadow-[0_10px_20px_rgba(100,255,218,0.2)]">
@@ -2310,6 +2310,43 @@ document.getElementById('talentSearch').addEventListener('input', (e) => {
         }
     } else {
         feedback.textContent = "";
+    }
+    });
+// Keep a running list of all candidates the user clicks
+const requestedCandidates = new Set();
+
+// Auto-fill Contact Form with Multiple Candidate Codes
+document.querySelectorAll('.talent-card').forEach(card => {
+    // Find the Request button and the Span containing the Ref Code within each card
+    const requestButton = card.querySelector('a[href="#contact"]');
+    const refSpan = card.querySelector('span');
+    
+    if (requestButton && refSpan) {
+        requestButton.addEventListener('click', () => {
+            // Clean up the text to extract just "BP-XXX"
+            const refCode = refSpan.textContent.replace(/Ref:\s*/i, '').trim();
+            const messageBox = document.getElementById('message');
+            
+            if (messageBox) {
+                // Add the clicked candidate to our Set (duplicates are ignored automatically)
+                requestedCandidates.add(refCode);
+                
+                // Convert the Set to a comma-separated string (e.g., "BP-405, BP-412")
+                const candidatesList = Array.from(requestedCandidates).join(', ');
+                
+                // Determine if we should say "candidate" or "candidates"
+                const word = requestedCandidates.size > 1 ? 'candidates' : 'candidate';
+                
+                // Populate the text box
+                messageBox.value = `I would like to request the dossier for ${word} ${candidatesList}.`;
+                
+                // Optional: Briefly highlight the text box so the user notices it was auto-filled
+                messageBox.classList.add('border-teal-400', 'ring-2', 'ring-teal-400/50');
+                setTimeout(() => {
+                    messageBox.classList.remove('border-teal-400', 'ring-2', 'ring-teal-400/50');
+                }, 2000);
+            }
+        });
     }
 });
     </script>
