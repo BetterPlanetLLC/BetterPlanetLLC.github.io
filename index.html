@@ -183,11 +183,10 @@ If a placement needs adjustment during the agreed onboarding period, we will pro
 
                 <div class="flex flex-col md:flex-row items-end justify-between gap-6">
                     <div class="w-full md:max-w-md">
-                        <label class="block text-xs text-teal-400 uppercase tracking-widest font-bold mb-2">Jump to Candidate Code</label>
-                        <div class="relative">
-                            <input type="text" id="talentSearch" placeholder="Search by number 400-611 (e.g. 555)" 
-                                   class="w-full bg-navy-800 border border-slate-700 p-3 rounded text-white focus:border-teal-400 outline-none transition-all font-mono">
-                            <div id="searchFeedback" class="absolute right-3 top-3 text-xs font-mono"></div>
+                        <label class="block text-xs text-teal-400 uppercase tracking-widest font-bold mb-2">Filter Candidates</label>
+                            <div class="relative">
+                            <input type="text" id="talentSearch" placeholder="Search skills (e.g. C#, Python, React)" class="w-full bg-navy-800 border border-slate-700 p-3 rounded text-white focus:border-teal-400 outline-none transition-all font-mono">
+                                <div id="searchFeedback" class="absolute right-3 top-3 text-xs font-mono"></div>
                         </div>
                     </div>
 
@@ -2280,55 +2279,37 @@ window.addEventListener('scroll', () => {
 });
 
 // FIXED Search Logic
-document.getElementById('talentSearch').addEventListener('input', function(e) {
-    // Clean the input: remove "BP-" and spaces, leave only numbers
-    const rawInput = e.target.value.trim();
-    const numericQuery = rawInput.replace(/\D/g, ""); 
+document.getElementById('talentSearch').addEventListener('input', (e) => {
+    const query = e.target.value.toLowerCase().trim();
+    const cards = document.querySelectorAll('.talent-card');
     const feedback = document.getElementById('searchFeedback');
+    const container = document.getElementById('benchContainer');
     
-    // Don't trigger until we have at least 3 digits
-    if (numericQuery.length < 3) {
-        feedback.textContent = "";
-        return;
+    let matchCount = 0;
+
+    if (query.length > 0) {
+        container.scrollLeft = 0; 
     }
 
-    const cards = document.querySelectorAll('.talent-card');
-    let found = false;
-
     cards.forEach(card => {
-        const refSpan = card.querySelector('span');
-        if (refSpan) {
-            const cardRefText = refSpan.textContent; // e.g., "Ref: BP-422"
-            const cardNumeric = cardRefText.replace(/\D/g, ""); // e.g., "422"
+        const cardText = card.textContent.toLowerCase();
 
-            if (cardNumeric === numericQuery) {
-                // Force scroll and disable snap momentarily for precision
-                const container = document.getElementById('benchContainer');
-                container.style.scrollSnapType = "none";
-                
-                card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-                
-                // Re-enable snap after animation
-                setTimeout(() => {
-                    container.style.scrollSnapType = "x mandatory";
-                }, 600);
-
-                // Visual Highlight
-                card.classList.add('border-teal-400', 'ring-2', 'ring-teal-400/50');
-                setTimeout(() => {
-                    card.classList.remove('border-teal-400', 'ring-2', 'ring-teal-400/50');
-                }, 3000);
-                
-                feedback.textContent = "MATCH FOUND";
-                feedback.className = "absolute right-3 top-3 text-xs font-mono text-teal-400";
-                found = true;
-            }
+        if (cardText.includes(query) || query === '') {
+            card.style.display = 'flex'; 
+            matchCount++;
+        } else {
+            card.style.display = 'none';
         }
     });
 
-    if (!found && numericQuery.length >= 3) {
-        feedback.textContent = "NOT FOUND";
-        feedback.className = "absolute right-3 top-3 text-xs font-mono text-rose-400";
+    if (query.length > 0) {
+        feedback.textContent = `${matchCount} MATCH(ES)`;
+        feedback.className = "absolute right-3 top-3 text-xs font-mono text-teal-400";
+        if (matchCount === 0) {
+            feedback.className = "absolute right-3 top-3 text-xs font-mono text-rose-400";
+        }
+    } else {
+        feedback.textContent = "";
     }
 });
     </script>
